@@ -1,7 +1,7 @@
+sudo: false
 language: node_js
-before_script:
-  - sh -c "sudo redis-server start"
-  - until ruby -rsocket -e '$stderr=File.open(File::NULL,"w"); TCPSocket.new("localhost",6379)'; do sleep 1; done
+services:
+  - redis-server
 node_js:
   - 6
 install:
