@@ -1,5 +1,5 @@
 // Must be at the top as priority pass to load all environment variables
-require('dotenv').config()
+require('dotenv').config({silent: true})
 
 const express = require('express')
 const app = express()
