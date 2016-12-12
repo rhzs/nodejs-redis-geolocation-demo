@@ -1,5 +1,4 @@
 language: node_js
-sudo: false
 before_script:
   - sh -c "sudo redis-server start"
   - until ruby -rsocket -e '$stderr=File.open(File::NULL,"w"); TCPSocket.new("localhost",6379)'; do sleep 1; done
