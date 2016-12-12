@@ -1,11 +1,19 @@
 sudo: false
 language: node_js
-addons:
-  apt:
-    packages:
-      - redis-server
 node_js:
   - 6
+os:
+  - osx
+before_install:
+  - git clone https://github.com/creationix/nvm.git /tmp/.nvm
+  - source /tmp/.nvm/nvm.sh
+  - nvm install $TRAVIS_NODE_VERSION
+  - nvm use --delete-prefix $TRAVIS_NODE_VERSION
+  - brew update
+  - brew install redis
+before_script:
+  - sh -c "sudo redis-server start"
+  - until ruby -rsocket -e '$stderr=File.open(File::NULL,"w"); TCPSocket.new("localhost",6379)'; do sleep 1; done
 install:
   - npm install
 script:
