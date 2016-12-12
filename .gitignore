@@ -1,0 +1,9 @@
+.env
+.env.*
+!.env.sample
+node_modules/
+*.log
+.nyc_output
+coverage
+src/*.log
+!testing-and-benchmark.log

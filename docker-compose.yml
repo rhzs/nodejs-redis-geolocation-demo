@@ -1,0 +1,29 @@
+
+redis:
+  image: redis
+  ports:
+    - "6379:6379"
+
+web:
+  build: .
+  volumes:
+    - "./:/src"
+  ports:
+    - "3000"
+  links:
+    - "redis"
+  environment:
+    - REDIS_HOST=192.168.43.190
+  command: npm run prod
+
+nginx:
+  restart: always
+  build: ./nginx/
+  ports:
+    - "80:80"
+  volumes:
+    - /www/public
+  volumes_from:
+    - web
+  links:
+    - web:web
