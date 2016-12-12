@@ -14,7 +14,8 @@
     "lint": "standard",
     "lint:fix": "standard --fix",
     "test": "npm run lint && nyc ava --verbose",
-    "test:with-watcher": "DEBUG=ava:watcher npm test -- --watch --verbose"
+    "test:with-watcher": "DEBUG=ava:watcher npm test -- --watch --verbose",
+    "report-coverage": "nyc report --reporter=lcov > coverage.lcov && codecov"
   },
   "nyc": {
     "include": [
@@ -59,6 +60,7 @@
     "ava": "^0.17.0",
     "babel-eslint": "^7.1.1",
     "chokidar": "^1.6.1",
+    "codecov": "^1.0.1",
     "dotenv": "^2.0.0",
     "nyc": "^9.0.1",
     "standard": "^8.5.0",
