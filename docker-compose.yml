@@ -17,6 +17,7 @@ services:
     depends_on:
       - redis
 
+# TODO: Add nginx as load balancer
 # nginx:
 #   restart: always
 #   build: ./nginx/

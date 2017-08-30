@@ -9,16 +9,18 @@ NodeJS and Redis demo for Redis 3 Geo Location query support
 ## Instructions (without docker)
 1. Make sure Redis server is up & running
 2. You can do testing and coverage in this package
-3. API docs:
-	a. `/` -> main route
-	b. `/api/v1/drivers`
-		Headers:
-			- `USER_ID`, (Required) must be a number
-		Parameters:
-			- `latitude`, (Required) +/- 90 degree
-			- `longitude`, (Required) +/- 180 degree
-			- `radius`, (Optional in meter, default: 500m)
-			- `limit`, (Optional, default: 10)
+
+
+## API Docs:
+1. `/` -> main route
+2. `/api/v1/drivers`
+	Headers:
+		- `USER_ID`, (Required) must be a number
+	Parameters:
+		- `latitude`, (Required) +/- 90 degree
+		- `longitude`, (Required) +/- 180 degree
+		- `radius`, (Optional in meter, default: 500m)
+		- `limit`, (Optional, default: 10)
 
 ## Instructions with Docker Compose
 Requirement, `docker CE`, `boot2docker` or `docker-machine`
@@ -50,6 +52,13 @@ You can see it in `tests/integration/test-simultaneous-drivers-api.js`.
 
 ## Code Style and Linter
 This project uses linter via `standard` instead of individual linter via `eslint` which troubled in setup.
+
+## TODO
+- [ ] Make API swagger docs
+- [ ] Improve load testing
+- [ ] Restructure project
+- [ ] Use better validation strategy for accepting geolocation params request?
+- [ ] Implement back Nginx as load balancer
 
 ---
 
