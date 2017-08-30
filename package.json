@@ -1,7 +1,10 @@
 {
   "name": "NodeJS-Redis-Geolocation-Demo",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.1.0",
+  "engines": {
+    "node": ">=6.9.0"
+  },
+  "description": "NodeJS Redis Geo Location Demo",
   "author": {
     "name": "Rheza Satria",
     "email": "rheza.satria.ta@gmail.com"
