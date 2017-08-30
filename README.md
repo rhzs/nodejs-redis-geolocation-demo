@@ -2,12 +2,11 @@
 NodeJS and Redis demo for Redis 3 Geo Location query support
 
 ## Requirements:
-NVM v0.31.1
-NodeJS v6.9.1
-Redis 3.2.x
-boot2docker (optional)
+- NodeJS v6.11.2 or higher
+- Redis 3.2.x
+- docker CE / docker-machine (vm) (optional but highly recommended for easiness!)
 
-## Instructions
+## Instructions (without docker)
 1. Make sure Redis server is up & running
 2. You can do testing and coverage in this package
 3. API docs:
@@ -21,6 +20,14 @@ boot2docker (optional)
 			- `radius`, (Optional in meter, default: 500m)
 			- `limit`, (Optional, default: 10)
 
+## Instructions with Docker Compose
+Requirement, `docker CE`, `boot2docker` or `docker-machine`
+1. `npm install`
+2. Make sure you edit `docker-compose.yml`. 
+3. `docker-compose up` to run everything
+
+NOTE: In `docker-machine`, you may need to change `REDIS_HOST` to your docker ip address.
+
 ## Development Environment
 1. Create `.env` file, see the example in `.env.sample`
 2. Fill with your own setup. For example, specify `PORT`, `REDIS`, etc
@@ -31,12 +38,6 @@ boot2docker (optional)
 3. `npm run test` / `npm test` => Testing
 4. `npm run lint` => for linting
 5. `npm run lint:fix` => for automatically fixing all linting issues
-
-## Deployment with Docker Compose
-Requirement, `boot2docker` or `docker`
-1. `npm install`
-2. Make sure you edit `docker-compose.yml` and change `REDIS_HOST` to your ipaddress. 
-3. `docker-compose up` to run everything
 
 ## Unit Testing and Coverage
 Make sure you have followed `Instructions` part. Do the following:
@@ -49,3 +50,7 @@ You can see it in `tests/integration/test-simultaneous-drivers-api.js`.
 
 ## Code Style and Linter
 This project uses linter via `standard` instead of individual linter via `eslint` which troubled in setup.
+
+---
+
+Made by Rheza Satria (c) 2016-2017

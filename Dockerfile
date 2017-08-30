@@ -1,8 +1,9 @@
-FROM node:6.9.1
+FROM node:6.11.2-alpine
 
-RUN mkdir /src
-
-
+COPY src /src
 WORKDIR /src
+
 ADD package.json package.json
 RUN npm install
+
+CMD node server.js
