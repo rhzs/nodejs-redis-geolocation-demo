@@ -40,4 +40,3 @@ test('Testing longitude validation: isValidLongitude()', t => {
   t.is(true, long6)
   t.is(true, long7)
 })
-
