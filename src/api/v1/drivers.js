@@ -11,13 +11,6 @@ const {
 const LSET_NAME = 'geo:locations'
 
 module.exports = (redis) => {
-  // !!!! Please README !!!!
-  // User check via headers
-  // Rheza's NOTE:
-  //  Since this is not stated in the question, how to validate the user
-  //  This is to replace the authentication token to validate driver identity
-  //  This should be less overhead because we just verifiying if it is valid integer or not
-  //  Each time the request gets new ID, it will be treated as new user
   router.get('/', (req, res, next) => {
     const strUserID = req.headers.user_id
     const userID = parseInt(strUserID)
@@ -53,8 +46,6 @@ module.exports = (redis) => {
 
   // We make this a function instead of middleware, to set the default value for Radius and Limit if not found
   function validateRadiusAndLimit ({radius, limit}) {
-    // Starting from this line and below lines are additional validations AND NOT required in the question
-    // However, I have added them as part of checking
     const errors = []
 
     radius = radius || 500
